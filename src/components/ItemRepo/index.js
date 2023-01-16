@@ -1,15 +1,14 @@
-import React from 'react'
-import {ItemContainer} from './styles';
+import { ItemContainer } from './styles';
 
-function ItemRepo() {
+function ItemRepo({ repo }) {
   return (
     <ItemContainer>
-        <h3>Opa</h3>
-        <p>Opinha</p>
-        <a href='#'>Ver repositório</a>
-        <br/>
-        <a href='#' className='remove'>Remover</a>
-        <hr/>
+      <h3>{repo.name}</h3>
+      <p>{repo.description}</p>
+      <a href={repo.html_url} target='_blank' rel='noreferrer'>Ver repositório</a>
+      <br />
+      <a href='#' className='remove' rel='noreferrer'>Remover</a>
+      <hr />
     </ItemContainer>
   )
 }
