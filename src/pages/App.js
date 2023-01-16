@@ -28,13 +28,17 @@ function App() {
     alert('Repositório já consta na lista!')
 
   }
-//TODO adicionar função para remover repositório
+
+  const handleRemoveRepo = (id) => {
+    setRepos(repos.filter(repo => repo.id !== id))
+  }
+
   return (
     <Container className="App">
       <img src={gitlogo} width={72} height={72} alt="Github logo" />
       <Input value={currentRepo} onChange={(e) => setCurrentRepo(e.target.value)} />
       <Button onClick={handleSearchRepo} />
-      {repos.map(repo => <ItemRepo repo={repo} />)}
+      {repos.map(repo => <ItemRepo repo={repo} handleRemoveRepo={handleRemoveRepo}/>)}
     </Container>
   );
 }
